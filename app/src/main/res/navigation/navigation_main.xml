@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/alphabetListFragment">
+
+    <fragment
+        android:id="@+id/alphabetListFragment"
+        android:name="home.bogddev.techdic.ui.alphabetlist.AlphabetListFragment"
+        android:label="AlphabetListFragment" >
+        <action
+            android:id="@+id/action_alphabetListFragment_to_wordListFragment"
+            app:destination="@id/wordListFragment" />
+        <action
+            android:id="@+id/action_alphabetListFragment_to_infoHubFragment"
+            app:destination="@id/infoHubFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wordListFragment"
+        android:name="home.bogddev.techdic.ui.wordlist.WordListFragment"
+        android:label="WordListFragment" >
+        <argument
+            android:name="AlphabetListItem"
+            app:argType="home.bogddev.techdic.model.model.AlphabetListItem" />
+        <action
+            android:id="@+id/action_wordListFragment_to_infoHubFragment"
+            app:destination="@id/infoHubFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoHubFragment"
+        android:name="home.bogddev.techdic.ui.info.hub.InfoHubFragment"
+        android:label="InfoHubFragment" >
+        <action
+            android:id="@+id/action_infoHubFragment_to_infoDetailedFragment"
+            app:destination="@id/infoDetailedFragment" />
+        <action
+            android:id="@+id/action_infoHubFragment_to_alphabetListFragment"
+            app:destination="@id/alphabetListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoDetailedFragment"
+        android:name="home.bogddev.techdic.ui.info.detailed.InfoDetailedFragment"
+        android:label="InfoDetailedFragment" >
+        <argument
+            android:name="textContent"
+            app:argType="string" />
+    </fragment>
+</navigation>
